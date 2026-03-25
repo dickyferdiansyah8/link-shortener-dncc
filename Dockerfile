@@ -4,7 +4,7 @@ FROM php:8.4-fpm-alpine
 RUN apk add --no-cache     libpng-dev     libzip-dev     zip     unzip     && docker-php-ext-install pdo pdo_mysql gd zip
 
 WORKDIR /var/www
-COPY . .
+COPY  . /var/www
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
