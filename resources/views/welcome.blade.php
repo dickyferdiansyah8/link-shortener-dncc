@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DNCC Link Shortener</title>
+    <title>Link Shortener CI/CD</title>
     <style>
         body { font-family: sans-serif; text-align: center; margin-top: 100px; }
         input { padding: 10px; width: 300px; }
@@ -9,8 +9,8 @@
     </style>
 </head>
 <body>
-    <h1>DNCC Link Shortener 🚀</h1>
-    <p>Tugas Cloud & DevOps - dikidian</p>
+    <h1>DNCC Link Shortener </h1>
+    <p>DevOps - dikidian</p>
     
     <form action="/shorten" method="POST">
         @csrf
