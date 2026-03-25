@@ -1,8 +1,7 @@
 FROM php:8.2-fpm
 
 # 1. Install dependencies (opsional tapi disarankan)
-RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev zip git unrar && docker-php-ext-install pdo_mysql gd
-
+RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev zip git unzip && docker-php-ext-install pdo_mysql gd
 # 2. Tentukan direktori kerja
 WORKDIR /var/www
 
