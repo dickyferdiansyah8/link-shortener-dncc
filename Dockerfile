@@ -1,16 +1,15 @@
-FROM php:8.4-fpm-alpine
+FROM php:8.2-fpm
 
-# Install ekstensi yang dibutuhkan Laravel modern
-RUN apk add --no-cache     libpng-dev     libzip-dev     zip     unzip     && docker-php-ext-install pdo pdo_mysql gd zip
+# 1. Install dependencies (opsional tapi disarankan)
+RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev zip git unrar && docker-php-ext-install pdo_mysql gd
 
+# 2. Tentukan direktori kerja
 WORKDIR /var/www
-COPY  . /var/www
 
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-RUN composer install --no-dev --optimize-autoloader
+# 3. SAKTI: Salin semua file project Laravel kamu ke dalam Image
+COPY . /var/www
 
-# Izin akses folder
+# 4. Beri izin akses (agar tidak error permission di Laravel)
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 EXPOSE 9000
